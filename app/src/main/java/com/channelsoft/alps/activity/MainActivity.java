@@ -63,11 +63,10 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Log.d(ACTIVITY_TAG, "点击注册按钮");
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this,RegisterActivity.class);
+                intent.setClass(MainActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
-
 
 
     }

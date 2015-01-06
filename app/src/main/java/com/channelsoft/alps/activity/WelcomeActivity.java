@@ -38,10 +38,10 @@ public class WelcomeActivity extends TabActivity {
 //        info.setText("欢迎[" + mUsername + "]进入系统.");
         main_radiogroup = (RadioGroup) findViewById(R.id.main_radiogroup);
 
-//        tab_icon_weixin = (RadioButton) findViewById(R.id.tab_icon_weixin);
-//        tab_icon_address = (RadioButton) findViewById(R.id.tab_icon_address);
-//        tab_icon_friend = (RadioButton) findViewById(R.id.tab_icon_friend);
-//        tab_icon_setting = (RadioButton) findViewById(R.id.tab_icon_setting);
+        tab_icon_weixin = (RadioButton) findViewById(R.id.tab_icon_weixin);
+        tab_icon_address = (RadioButton) findViewById(R.id.tab_icon_address);
+        tab_icon_friend = (RadioButton) findViewById(R.id.tab_icon_friend);
+        tab_icon_setting = (RadioButton) findViewById(R.id.tab_icon_setting);
 
 
         tabhost = getTabHost();
@@ -50,31 +50,31 @@ public class WelcomeActivity extends TabActivity {
         tabhost.addTab(tabhost.newTabSpec("tag3").setIndicator("2").setContent(new Intent(this,Activity3.class)));
         tabhost.addTab(tabhost.newTabSpec("tag4").setIndicator("3").setContent(new Intent(this,Activity4.class)));
 
-//        CheckListener checkradio = new CheckListener();
-//        main_radiogroup.setOnCheckedChangeListener(checkradio);
+        CheckListener checkradio = new CheckListener();
+        main_radiogroup.setOnCheckedChangeListener(checkradio);
     }
 
-//    public class CheckListener implements RadioGroup.OnCheckedChangeListener {
-//        @Override
-//        public void onCheckedChanged(RadioGroup group, int checkedId) {
-//            // TODO Auto-generated method stub
-//            switch(checkedId){
-//                case R.id.tab_icon_weixin:
-//                    tabhost.setCurrentTab(0);
-//                    //��
-//                    //tabhost.setCurrentTabByTag("tag1");
-//                    break;
-//                case R.id.tab_icon_address:
-//                    tabhost.setCurrentTab(1);
-//                    break;
-//                case R.id.tab_icon_friend:
-//                    tabhost.setCurrentTab(2);
-//                    break;
-//                case R.id.tab_icon_setting:
-//                    tabhost.setCurrentTab(3);
-//                    break;
-//            }
-//        }
-//    }
+    public class CheckListener implements RadioGroup.OnCheckedChangeListener {
+        @Override
+        public void onCheckedChanged(RadioGroup group, int checkedId) {
+            // TODO Auto-generated method stub
+            switch(checkedId){
+                case R.id.tab_icon_weixin:
+                    tabhost.setCurrentTab(0);
+                    //��
+                    //tabhost.setCurrentTabByTag("tag1");
+                    break;
+                case R.id.tab_icon_address:
+                    tabhost.setCurrentTab(1);
+                    break;
+                case R.id.tab_icon_friend:
+                    tabhost.setCurrentTab(2);
+                    break;
+                case R.id.tab_icon_setting:
+                    tabhost.setCurrentTab(3);
+                    break;
+            }
+        }
+    }
 
 }
