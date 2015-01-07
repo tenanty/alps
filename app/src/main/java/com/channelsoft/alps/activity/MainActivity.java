@@ -7,16 +7,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.channelsoft.alps.R;
+import com.channelsoft.alps.activity.base.BaseActivity;
 
 
 /**
  * 登录页面
  */
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
     private Button mLoginButton = null;
     private Button mRegisterButton = null;
@@ -28,6 +30,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //不在活动中显示标题栏
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
 

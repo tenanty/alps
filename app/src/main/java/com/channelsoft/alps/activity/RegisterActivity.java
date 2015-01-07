@@ -9,12 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.channelsoft.alps.R;
+import com.channelsoft.alps.activity.base.BaseActivity;
 
 /**
  * 注册页面
  * Created by yuanshun on 2015/1/5.
  */
-public class RegisterActivity extends Activity {
+public class RegisterActivity extends BaseActivity {
 
     private final String ACTIVITY_TAG = "REGISTER_TAG";
     private Button mRegisterButton = null;

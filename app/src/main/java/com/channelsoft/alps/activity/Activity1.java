@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import com.channelsoft.alps.R;
+import com.channelsoft.alps.activity.base.BaseActivity;
 
-public class Activity1 extends Activity{
+public class Activity1 extends BaseActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

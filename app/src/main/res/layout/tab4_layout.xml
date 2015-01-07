@@ -9,19 +9,17 @@
         android:layout_width="match_parent"
         android:layout_height="50.0dip"
         android:background="#106184">
-            <TextView
-                android:id="@+id/titleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:padding="10.0dip"
-                android:singleLine="true"
-                android:text="设置"
-                android:textColor="@color/white"
-                android:textSize="15dp"
-                />
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="10.0dip"
+            android:singleLine="true"
+            android:text="设置"
+            android:textSize="15dp"
+            />
         </RelativeLayout>
-        <!--
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,7 +60,7 @@
                             android:textSize="16.0sp"
                             android:id="@+id/setting_touxiang" />
                     </TableRow>
-                   &lt;!&ndash; <TableRow
+                    <TableRow
                         android:id="@+id/more_page_row1"
                         android:layout_width="match_parent"
                         android:layout_marginLeft="2.0dip"
@@ -182,7 +180,6 @@
                             android:textSize="16.0sp"
                             android:id="@+id/setting_mima" />
                     </TableRow>
-&ndash;&gt;
                     </TableLayout>
 
                 </LinearLayout>
@@ -190,12 +187,12 @@
             </LinearLayout>
 
 
-        </ScrollView>-->
+        </ScrollView>
 
 <ImageView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
      android:scaleType="fitXY"
     android:src="@drawable/background4"
-    />
+    android:id="@+id/setting_bg" />
 </LinearLayout>
