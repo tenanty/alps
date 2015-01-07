@@ -1,7 +1,12 @@
 package com.channelsoft.alps.activity;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.channelsoft.alps.R;
 import com.channelsoft.alps.activity.base.BaseActivity;
@@ -20,12 +26,21 @@ import com.channelsoft.alps.activity.base.BaseActivity;
  */
 public class MainActivity extends BaseActivity {
 
+    private IntentFilter intentFilter;
+    private NetworkChangeReceiver networkChangeReceiver;
+
     private Button mLoginButton = null;
     private Button mRegisterButton = null;
     private EditText mUsername = null;
     private EditText mPassword = null;
 
-    private final String ACTIVITY_TAG = "LOGIN_ACTIVITY";
+    private final String ACTIVITY_TAG = MainActivity.class.getName();
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(networkChangeReceiver);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +49,11 @@ public class MainActivity extends BaseActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
+        //注册网络变化广播
+        intentFilter = new IntentFilter();
+        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        networkChangeReceiver = new NetworkChangeReceiver();
+        registerReceiver(networkChangeReceiver, intentFilter);
 
         mLoginButton = (Button) findViewById(R.id.login_button);
         mRegisterButton = (Button) findViewById(R.id.register_button);
@@ -72,9 +92,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -97,4 +115,23 @@ public class MainActivity extends BaseActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    class NetworkChangeReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            //判断网络状态为断开还是连接
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.isAvailable()) {
+                Toast.makeText(context, "network changes:available", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context,"network changes:unavailable",Toast.LENGTH_SHORT).show();
+            }
+
+
+        }
+    }
+
 }

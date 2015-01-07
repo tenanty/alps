@@ -45,10 +45,9 @@
                         android:layout_width="match_parent"
                         android:layout_marginLeft="2.0dip"
                         android:layout_marginRight="2.0dip"
-                        android:paddingBottom="16.0dip"
-                        android:paddingTop="8.0dip"
                         android:background="@drawable/more_item_press"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingRight="20.0dip">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -59,6 +58,22 @@
                             android:textColor="#ff333333"
                             android:textSize="16.0sp"
                             android:id="@+id/setting_touxiang" />
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/title_text"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="#ff000000"
+                            android:textSize="24sp"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/mm_submenu"
+                            android:layout_gravity="right"
+                            android:paddingRight="30.0dip" />
                     </TableRow>
                     <TableRow
                         android:id="@+id/more_page_row1"
@@ -189,10 +204,4 @@
 
         </ScrollView>
 
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-     android:scaleType="fitXY"
-    android:src="@drawable/background4"
-    android:id="@+id/setting_bg" />
 </LinearLayout>

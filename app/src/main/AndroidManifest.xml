@@ -16,12 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.WelcomeActivity" android:label="欢迎页面"></activity>
-        <activity android:name=".activity.RegisterActivity" android:label="注册页面"></activity>
-        <activity android:name=".activity.Activity1" android:label="1"></activity>
-        <activity android:name=".activity.Activity2" android:label="2"></activity>
-        <activity android:name=".activity.Activity3" android:label="3"></activity>
-        <activity android:name=".activity.Activity4" android:label="4"></activity>
+        <activity android:name=".activity.WelcomeActivity" android:label="欢迎页面"/>
+        <activity android:name=".activity.RegisterActivity" android:label="注册页面"/>
+        <activity android:name=".activity.Activity1" android:label="1"/>
+        <activity android:name=".activity.Activity2" android:label="2"/>
+        <activity android:name=".activity.Activity3" android:label="3"/>
+        <activity android:name=".activity.Activity4" android:label="4"/>
     </application>
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 </manifest>
