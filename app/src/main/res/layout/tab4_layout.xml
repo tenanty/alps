@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_gravity="center"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/top_relative"
@@ -34,9 +35,11 @@
             android:paddingLeft="10.0dip"
             android:paddingRight="10.0dip"
             android:paddingTop="10.0dip">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -45,41 +48,31 @@
                         android:layout_width="match_parent"
                         android:layout_marginLeft="2.0dip"
                         android:layout_marginRight="2.0dip"
-                        android:background="@drawable/more_item_press"
-                        android:orientation="horizontal"
-                        android:paddingRight="20.0dip">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:includeFontPadding="false"
-                            android:paddingLeft="17.0dip"
-                            android:text="头像"
-                            android:textColor="#ff333333"
-                            android:textSize="16.0sp"
-                            android:id="@+id/setting_touxiang" />
-                        <TextView
-                            android:layout_width="0dip"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/title_text"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#ff000000"
-                            android:textSize="24sp"/>
-                        <ImageView
-                            android:id="@+id/picture"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            />
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
-                            android:gravity="center_vertical"
-                            android:src="@drawable/mm_submenu"
-                            android:layout_gravity="right"
-                            android:paddingRight="30.0dip" />
+                        android:background="@drawable/more_item_press">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:includeFontPadding="false"
+                                android:layout_gravity="left"
+                                android:paddingLeft="17.0dip"
+                                android:text="头像"
+                                android:textColor="#ff333333"
+                                android:textSize="16.0sp"
+                                android:id="@+id/setting_touxiang" />
+                            <ImageView
+                                android:id="@+id/picture"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/icon"
+                                android:layout_column="1" />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:gravity="center_vertical"
+                                android:src="@drawable/mm_submenu"
+                                android:paddingLeft="100dp"
+                                android:id="@+id/x0" />
                     </TableRow>
                     <TableRow
                         android:id="@+id/more_page_row1"
