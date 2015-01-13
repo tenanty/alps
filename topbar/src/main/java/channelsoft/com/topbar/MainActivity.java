@@ -1,4 +1,4 @@
-package com.channelsoft.tobar;
+package channelsoft.com.myapplication;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;

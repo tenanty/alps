@@ -1,4 +1,4 @@
-package com.channelsoft.tobar;
+package channelsoft.com.myapplication;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

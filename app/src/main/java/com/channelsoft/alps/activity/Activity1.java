@@ -1,6 +1,5 @@
 package com.channelsoft.alps.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.channelsoft.alps.R;
