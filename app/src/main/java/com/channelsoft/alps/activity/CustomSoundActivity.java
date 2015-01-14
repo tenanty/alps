@@ -23,13 +23,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.channelsoft.alps.R;
+import com.channelsoft.alps.activity.base.BaseActivity;
 import com.channelsoft.alps.activity.util.SoundMeter;
 
 import java.io.File;
 import java.io.IOException;
 
 
-public class CustomSoundActivity extends Activity {
+public class CustomSoundActivity extends BaseActivity {
 
     private Button bntRecord;
     private int flag = 1;
@@ -103,7 +104,7 @@ public class CustomSoundActivity extends Activity {
                             start(voiceName);
                             //设置录音时间
                             timedown.setVisibility(View.VISIBLE);
-                            initTimer(5);
+                            initTimer(30);
                             timedown.start();
                             flag = 2;
                         }
@@ -141,15 +142,15 @@ public class CustomSoundActivity extends Activity {
         soundUse(voiceName);
     }
 
-
     private void soundUse(String fileName) {
-        //判断sd卡上是否有声音文件，有的话就显示名称并播放
+        //判断sd卡上是否有声音文件，有的话就显示名称并播放，录音文件默认存放位置/hq_100
         final String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/hq_100/" + voiceName;
         File file = new File(path);
         if (file.exists()) {
             sound_file.setVisibility(View.VISIBLE);
             String soundName = file.getName();
             txtName.setText(soundName);
+            txtName.setTextColor(Color.WHITE);
             //点击声音文件播放声音
             sound_file.setOnTouchListener(new OnTouchListener() {
                 @Override
@@ -178,7 +179,7 @@ public class CustomSoundActivity extends Activity {
                         }
                     } else if (event.getAction() == MotionEvent.ACTION_UP) {
                         //TODO 为什么使用资源文件的颜色属性就会宕机
-                        sound_file.setBackgroundColor(Color.WHITE);
+                        sound_file.setBackgroundColor(Color.GREEN);
 //                        sound_file.setBackgroundColor(getResources().getColor(R.color.white));
                     }
                     return true;

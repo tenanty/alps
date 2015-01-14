@@ -18,17 +18,21 @@
         custom:titleTextColor="#FFFFFF"
         android:id="@+id/topbar">
     </com.channelsoft.alps.activity.module.Topbar>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/list_view"></ListView>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/to_record"/>
-
+<!--
 <ImageView 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
      android:scaleType="fitXY"
     android:src="@drawable/background1"
-    />
+    />-->
 
 
 </LinearLayout>
