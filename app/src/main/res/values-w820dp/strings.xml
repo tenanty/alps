@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="hello_world">Hello world!</string>
-
-    <string name="app_name">djyq</string>
+    <string name="app_name">大家</string>
     <string name="action_settings">Settings</string>
     <string name="radio1_text">微信</string>
     <string name="radio2_text">通讯录</string>
     <string name="radio3_text">朋友们</string>
     <string name="radio4_text">设置</string>
-
 </resources>

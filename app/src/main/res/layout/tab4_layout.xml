@@ -19,6 +19,14 @@
         custom:titleTextColor="#FFFFFF"
         android:id="@+id/topbar">
     </com.channelsoft.alps.activity.module.Topbar>
+    <ListView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/settings_list_view"
+        android:dividerHeight="1dip"
+        android:divider="@android:color/darker_gray"
+        ></ListView>
    <!-- <RelativeLayout
         android:id="@+id/top_relative"
         android:layout_width="match_parent"
@@ -35,7 +43,7 @@
             android:textSize="15dp"
             />
         </RelativeLayout>-->
-    <ScrollView
+   <!-- <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fadingEdge="none">
@@ -215,6 +223,6 @@
             </LinearLayout>
 
 
-        </ScrollView>
+        </ScrollView>-->
 
 </LinearLayout>

@@ -25,13 +25,13 @@ public class Activity1 extends BaseActivity {
     //将所有路线信息放置在集合中
     private List<Route> routes = new ArrayList<Route>();
 
-    //跳转到录音页面
-    private Button button;
+//    //跳转到录音页面
+//    private Button button;
 
     private ListView lv;
 
-    //模拟ViewList数据集合
-    private String[] data = {"Apple", "Banana", "Orange", "Watermelon", "Pear", "Graps", "Pineapples", "Strawberry", "Cherry", "Mango"};
+//    //模拟ViewList数据集合
+//    private String[] data = {"Apple", "Banana", "Orange", "Watermelon", "Pear", "Graps", "Pineapples", "Strawberry", "Cherry", "Mango"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +42,15 @@ public class Activity1 extends BaseActivity {
         initRoute();
         RouteAdapter adapter = new RouteAdapter(Activity1.this, R.layout.route_item, routes);//使用自定义模板route_item
 
-        button = (Button) findViewById(R.id.to_record);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(Activity1.this, CustomSoundActivity.class);
-                startActivity(intent);
-            }
-        });
+//        button = (Button) findViewById(R.id.to_record);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(Activity1.this, CustomSoundActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 //        ArrayAdapter aa = new ArrayAdapter<String>(Activity1.this, android.R.layout.simple_list_item_1, data);
         lv = (ListView) findViewById(R.id.list_view);

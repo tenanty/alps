@@ -9,14 +9,29 @@
         android:layout_centerInParent="true"
         android:text="xxx"
         android:layout_gravity="center"
-        android:id="@+id/settings_id"/>
-
-    <ImageView
-        android:layout_width="50dp"
+        android:id="@+id/settings_id"
+        android:layout_marginLeft="20dip"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:id="@+id/settings_img"
-        android:background="@drawable/route_1"
-        android:layout_centerInParent="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dip"/>
+        android:layout_alignParentRight="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:id="@+id/settings_value"
+            android:layout_marginRight="10dip"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/settings_img"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dip"/>
+        </LinearLayout>
+
 </RelativeLayout>
