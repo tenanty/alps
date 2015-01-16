@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -22,7 +23,7 @@ import com.channelsoft.alps.R;
 public class Topbar  extends RelativeLayout{
 
     //基本元素信息：两个按钮+一个描述
-    private Button leftButton, rightButton;
+//    private Button leftButton, rightButton;
     private TextView tvTitle;
 
     //左按钮的修饰信息
@@ -43,6 +44,9 @@ public class Topbar  extends RelativeLayout{
     //放在layout中
     private LayoutParams leftParams, rightParams, titleParams;
 
+    //增加ImageView来替换左右按钮
+    private ImageView leftImageView;
+    private ImageView rightImageView;
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public Topbar(Context context, AttributeSet attrs) {
@@ -67,19 +71,26 @@ public class Topbar  extends RelativeLayout{
         ta.recycle();
 
         //实例化button和view
-        leftButton = new Button(context);
-        rightButton = new Button(context);
+//        leftButton = new Button(context);
+//        rightButton = new Button(context);
+        //左右ImageView替换Button
+        leftImageView = new ImageView(context);
+        rightImageView = new ImageView(context);
+
         tvTitle = new TextView(context);
 
         //获取到的属性赋值给控件
-        leftButton.setTextColor(leftTextColor);
-        leftButton.setBackground(leftBackground);
-        leftButton.setText(leftText);
+//        leftButton.setTextColor(leftTextColor);
+//        leftButton.setBackground(leftBackground);
+//        leftButton.setText(leftText);
+        leftImageView.setBackgroundResource(R.drawable.u10_normal);
+
 
         //获取到的属性赋值给控件
-        rightButton.setTextColor(rightTextColor);
-        rightButton.setBackground(rightBackground);
-        rightButton.setText(rightText);
+//        rightButton.setTextColor(rightTextColor);
+//        rightButton.setBackground(rightBackground);
+//        rightButton.setText(rightText);
+        rightImageView.setBackgroundResource(R.drawable.u10_normal);
 
         tvTitle.setTextColor(titleTextColor);
         tvTitle.setTextSize(titleTextSize);
@@ -93,16 +104,23 @@ public class Topbar  extends RelativeLayout{
 //        addView(leftButton, leftParams);
 
         //放在layout中,传入长宽信息,下列设置宽高为WRAP_CONTENT
-        leftParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+        leftParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         //增加规则：居左对其
         leftParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, TRUE);
-        addView(leftButton, leftParams);
+        leftParams.addRule(RelativeLayout.CENTER_IN_PARENT,TRUE);
+//        addView(leftButton, leftParams);
+        //使用ImageView替换Button
+        addView(leftImageView,leftParams);
 
         //放在layout中,传入长宽信息,下列设置宽高为WRAP_CONTENT
-        rightParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+        rightParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         //增加规则：居左对其
         rightParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, TRUE);
-        addView(rightButton, rightParams);
+        rightParams.addRule(RelativeLayout.CENTER_IN_PARENT,TRUE);
+//        addView(rightButton, rightParams);
+        //使用ImageView替换Button
+        addView(rightImageView,rightParams);
+
 
         //放在layout中,传入长宽信息,下列设置宽高为WRAP_CONTENT
         titleParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
