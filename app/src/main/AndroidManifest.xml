@@ -22,6 +22,7 @@
         <activity android:name=".activity.Activity3" android:label="3"/>
         <activity android:name=".activity.Activity4" android:label="4"/>
         <activity android:name=".activity.CustomSoundActivity" android:label="录音页面"/>
+        <activity android:name=".activity.MyActivity" android:label="测试"/>
     </application>
 
     <!-- 连接网络的权限 -->

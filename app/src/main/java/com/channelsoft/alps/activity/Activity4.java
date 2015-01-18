@@ -48,6 +48,7 @@ public class Activity4 extends BaseActivity {
     private ImageView picture = null;
     private Uri imageUri;
 
+    //设置topbar组件
     private Topbar topbar;
 
     private List<Settings> settingsList = new ArrayList<>();
@@ -73,26 +74,28 @@ public class Activity4 extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final Settings settings = settingsList.get(position);
                 //获取手机信息
-                TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-                String phoneId = tm.getLine1Number();//获取手机号码
+//                TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+//                String phoneId = tm.getLine1Number();//获取手机号码
+//                Toast.makeText(Activity4.this, settings.getSettingsName(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(Activity4.this, "手机号码:" + phoneId, Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(Activity4.this, settings.getSettingsName(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(Activity4.this, "手机号码:" + phoneId, Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent();
-//                intent.setClass(Activity1.this, CustomSoundActivity.class);
-//                startActivity(intent);
-                new AlertDialog.Builder(Activity4.this).
-                        setTitle("请输入您的" + settings.getSettingsName() + ":").
-                        setView(new EditText(Activity4.this)).
-                        setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                if("姓名".equals(settings.getSettingsName())){
-                                    saveContext("name",settings.getSettingsName());
-                                }
-                            }
-                        }).
-                        setNegativeButton("取消", null).show();
+                Intent intent = new Intent();
+                intent.setClass(Activity4.this, MyActivity.class);
+                startActivity(intent);
+
+//
+//                new AlertDialog.Builder(Activity4.this).
+//                        setTitle("请输入您的" + settings.getSettingsName() + ":").
+//                        setView(new EditText(Activity4.this)).
+//                        setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                if("姓名".equals(settings.getSettingsName())){
+//                                    saveContext("name",settings.getSettingsName());
+//                                }
+//                            }
+//                        }).
+//                        setNegativeButton("取消", null).show();
             }
         });
 

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.channelsoft.alps.R;
 import com.channelsoft.alps.activity.adapter.RouteAdapter;
 import com.channelsoft.alps.activity.base.BaseActivity;
+import com.channelsoft.alps.activity.module.Topbar;
 import com.channelsoft.alps.activity.to.Route;
 
 import java.util.ArrayList;
@@ -24,6 +25,9 @@ public class Activity1 extends BaseActivity {
 
     //将所有路线信息放置在集合中
     private List<Route> routes = new ArrayList<Route>();
+
+    //topbar信息
+    private Topbar topbar;
 
 //    //跳转到录音页面
 //    private Button button;
@@ -38,6 +42,11 @@ public class Activity1 extends BaseActivity {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab1_layout);
+
+        //设置topbar信息
+        topbar = (Topbar) findViewById(R.id.topbar);
+        topbar.setLeftIsVisable(false);
+        topbar.setRightIsVisable(false);
         //初始化路线信息
         initRoute();
         RouteAdapter adapter = new RouteAdapter(Activity1.this, R.layout.route_item, routes);//使用自定义模板route_item

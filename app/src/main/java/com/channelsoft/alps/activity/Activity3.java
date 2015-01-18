@@ -13,7 +13,7 @@ import com.channelsoft.alps.activity.module.Topbar;
  * 第三个页面,显示好友信息
  */
 public class Activity3 extends BaseActivity {
-    Topbar rl;
+    private Topbar topbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,9 @@ public class Activity3 extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab3_layout);
 
-        rl = (Topbar) findViewById(R.id.topbar);
+        topbar = (Topbar) findViewById(R.id.topbar);
+        topbar.setLeftIsVisable(false);
+        topbar.setRightIsVisable(false);
 
     }
 }

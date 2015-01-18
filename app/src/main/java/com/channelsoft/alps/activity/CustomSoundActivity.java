@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.channelsoft.alps.R;
 import com.channelsoft.alps.activity.base.BaseActivity;
+import com.channelsoft.alps.activity.module.Topbar;
 import com.channelsoft.alps.activity.util.SoundMeter;
 
 import java.io.File;
@@ -52,11 +53,27 @@ public class CustomSoundActivity extends BaseActivity {
     private long timeLeftInS = 0;
     private MediaPlayer player;
 
+    private Topbar topbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_sound);
+        topbar = (Topbar) findViewById(R.id.topbar);
+        topbar.setRightIsVisable(false);
+        topbar.setTopbarListener(new Topbar.topbarClickListener() {
+            @Override
+            public void leftClick() {
+                CustomSoundActivity.this.finish();
+            }
+
+            @Override
+            public void rightClick() {
+
+            }
+        });
+
         bntRecord = (Button) findViewById(R.id.bntRecord);
         rcChat_popup = this.findViewById(R.id.rcChat_popup);
         volume = (ImageView) this.findViewById(R.id.volume);
