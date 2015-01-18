@@ -8,7 +8,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -20,7 +22,7 @@ import com.channelsoft.alps.R;
  * 自定义topbar组件
  * Created by yuanshun on 2015/1/13.
  */
-public class Topbar  extends RelativeLayout{
+public class Topbar extends RelativeLayout {
 
     //基本元素信息：两个按钮+一个描述
 //    private Button leftButton, rightButton;
@@ -47,6 +49,47 @@ public class Topbar  extends RelativeLayout{
     //增加ImageView来替换左右按钮
     private ImageView leftImageView;
     private ImageView rightImageView;
+
+    private topbarClickListener listener;
+
+    public void setTopbarListener(topbarClickListener listener) {
+        this.listener = listener;
+    }
+
+    /**
+     * 定义监听事件传入接口,由调用方设置左右按钮点击事件
+     */
+    public interface topbarClickListener {
+        public void leftClick();
+
+        public void rightClick();
+    }
+
+    /**
+     * 设置左按钮是否启用
+     *
+     * @param isVisable 传入false时将不显示组件,传入true时显示该组件
+     */
+    public void setLeftIsVisable(boolean isVisable) {
+        if (isVisable) {
+            leftImageView.setVisibility(View.VISIBLE);
+        } else {
+            leftImageView.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * 设置右按钮是否启用
+     *
+     * @param isVisable 传入false时将不显示组件,传入true时显示该组件
+     */
+    public void setRightIsVisable(boolean isVisable) {
+        if (isVisable) {
+            rightImageView.setVisibility(View.VISIBLE);
+        } else {
+            rightImageView.setVisibility(View.GONE);
+        }
+    }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public Topbar(Context context, AttributeSet attrs) {
@@ -83,7 +126,7 @@ public class Topbar  extends RelativeLayout{
 //        leftButton.setTextColor(leftTextColor);
 //        leftButton.setBackground(leftBackground);
 //        leftButton.setText(leftText);
-        leftImageView.setBackgroundResource(R.drawable.u10_normal);
+        leftImageView.setBackgroundResource(R.drawable.u33_normal);
 
 
         //获取到的属性赋值给控件
@@ -107,19 +150,20 @@ public class Topbar  extends RelativeLayout{
         leftParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         //增加规则：居左对其
         leftParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, TRUE);
-        leftParams.addRule(RelativeLayout.CENTER_IN_PARENT,TRUE);
-//        addView(leftButton, leftParams);
+        leftParams.addRule(RelativeLayout.CENTER_IN_PARENT, TRUE);
+
+        //        addView(leftButton, leftParams);
         //使用ImageView替换Button
-        addView(leftImageView,leftParams);
+        addView(leftImageView, leftParams);
 
         //放在layout中,传入长宽信息,下列设置宽高为WRAP_CONTENT
         rightParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         //增加规则：居左对其
         rightParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, TRUE);
-        rightParams.addRule(RelativeLayout.CENTER_IN_PARENT,TRUE);
+        rightParams.addRule(RelativeLayout.CENTER_IN_PARENT, TRUE);
 //        addView(rightButton, rightParams);
         //使用ImageView替换Button
-        addView(rightImageView,rightParams);
+        addView(rightImageView, rightParams);
 
 
         //放在layout中,传入长宽信息,下列设置宽高为WRAP_CONTENT
@@ -127,5 +171,26 @@ public class Topbar  extends RelativeLayout{
         //增加规则：居左对其
         titleParams.addRule(RelativeLayout.CENTER_IN_PARENT, TRUE);
         addView(tvTitle, titleParams);//通过addView加入相关视图
+
+        //设置左按钮点击事件
+        leftImageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.leftClick();
+                }
+            }
+        });
+
+        //设置右按钮点击事件
+        rightImageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.rightClick();
+                }
+            }
+        });
+
     }
 }

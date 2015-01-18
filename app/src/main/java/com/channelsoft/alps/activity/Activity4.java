@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 import com.channelsoft.alps.R;
 import com.channelsoft.alps.activity.adapter.SettingsAdapter;
 import com.channelsoft.alps.activity.base.BaseActivity;
+import com.channelsoft.alps.activity.module.Topbar;
 import com.channelsoft.alps.activity.to.Settings;
 
 import java.io.FileNotFoundException;
@@ -46,6 +48,8 @@ public class Activity4 extends BaseActivity {
     private ImageView picture = null;
     private Uri imageUri;
 
+    private Topbar topbar;
+
     private List<Settings> settingsList = new ArrayList<>();
     private ListView lv;
 
@@ -56,6 +60,10 @@ public class Activity4 extends BaseActivity {
         setContentView(R.layout.tab4_layout);
         initSettings();
         SettingsAdapter sa = new SettingsAdapter(Activity4.this, R.layout.settings_item, settingsList);
+
+        topbar = (Topbar) findViewById(R.id.topbar);
+        topbar.setLeftIsVisable(false);//设置左按钮不可见
+        topbar.setRightIsVisable(false);//设置右按钮不可见
 
         lv = (ListView) findViewById(R.id.settings_list_view);
         lv.setAdapter(sa);
